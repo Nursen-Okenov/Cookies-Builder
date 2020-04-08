@@ -4,8 +4,9 @@ import classes from "./CookiesKit.module.css";
 
 export default () => (
     <div className={classes.CookiesKit}>
-        <Cookies />
-        <Cookies />
-        <Cookies />
+        <Cookies type="round-cookie"/>
+        <Cookies type="square-cookie"/>
+        <Cookies type="round-dark-cookie"/>
+        
     </div>
 );
