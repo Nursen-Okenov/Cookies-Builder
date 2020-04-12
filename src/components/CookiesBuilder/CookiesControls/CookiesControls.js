@@ -8,12 +8,13 @@ const CONTROLS = [
   { label: "Round Cookie", type: "roundCookie" },
 ];
 
-export default ({ addIngredient, removeIngredient }) => {
+export default ({ ingredients, addIngredient, removeIngredient }) => {
   const controlsOutput = CONTROLS.map((control) => (
     <CookiesControl
       control={control}
       addIngredient={addIngredient}
       removeIngredient={removeIngredient}
+      desabled={ingredients[control.type] === 0}
     />
   ));
 

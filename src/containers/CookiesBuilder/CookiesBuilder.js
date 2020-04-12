@@ -41,6 +41,7 @@ export default () => {
     <div className={classes.CookiesBuilder}>
       <CookiesKit price={price} ingredients={ingredients} />
       <CookiesControls
+        ingredients={ingredients}
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
       />
