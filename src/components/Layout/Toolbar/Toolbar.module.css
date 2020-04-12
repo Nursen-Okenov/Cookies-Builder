@@ -1,6 +1,6 @@
 .Toolbar{
     background-color: aqua;
-}
-.Red{
-    color: yellow;
+
+    display: flex;
+    justify-content: space-between;
 }

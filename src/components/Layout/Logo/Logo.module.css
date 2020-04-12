@@ -1,0 +1,9 @@
+.Logo {
+    display: flex;
+    align-items: center;
+  }
+  .Logo img {
+    margin: 5px;
+    height: 60px;
+    width: 60px;
+  }
