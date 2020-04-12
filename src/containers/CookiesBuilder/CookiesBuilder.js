@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CookiesKit from "../../components/CookiesBuilder/CookiesKit/CookiesKit";
 import classes from "./CookiesBuilder.module.css";
+import CookiesControls from "../../components/CookiesBuilder/CookiesControls/CookiesControls";
 
 export default () => {
     const [ingredients, setIngredients] = useState({
@@ -11,7 +12,7 @@ export default () => {
 
     return (<div className={classes.CookiesBuilder}>
         <CookiesKit ingredients={ingredients} />
-        CookiesControls
+        <CookiesControls />
     </div>)
 };
 

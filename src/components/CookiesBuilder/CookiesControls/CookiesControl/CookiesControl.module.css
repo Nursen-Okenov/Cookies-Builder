@@ -1,0 +1,11 @@
+.CookiesControl {
+    margin-bottom: .5rem;
+}
+.CookiesControl .label {
+    color: white;
+}
+.CookiesControl button {
+    border: 1px solid gold;
+    background-color: rgb(224, 221, 22);
+    color: white;
+}
