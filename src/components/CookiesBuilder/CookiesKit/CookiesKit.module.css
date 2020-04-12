@@ -1,4 +1,4 @@
-.CookiesKit {
+.CookiesKit .bento{
     border: 3px solid gray;
     background-color: lightgray;
     width: 400px;
@@ -12,5 +12,9 @@
     justify-content: space-evenly;
 
     overflow: hidden;
+}
+.CookiesKit .price {
+    font-size: 2rem;
+    font-weight: bold;
 
 }
