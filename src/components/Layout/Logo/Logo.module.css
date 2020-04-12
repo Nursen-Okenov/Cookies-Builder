@@ -1,9 +1,14 @@
 .Logo {
-    display: flex;
-    align-items: center;
-  }
-  .Logo img {
-    margin: 5px;
-    height: 60px;
-    width: 60px;
-  }
+  display: flex;
+  align-items: center;
+}
+.Logo img {
+  margin: 5px;
+  height: 60px;
+  width: 60px;
+}
+.Logo span{
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+    font-size: 35px;
+}
