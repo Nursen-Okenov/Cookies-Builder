@@ -4,16 +4,22 @@ import classes from "./CookiesBuilder.module.css";
 import CookiesControls from "../../components/CookiesBuilder/CookiesControls/CookiesControls";
 
 const PRICES = {
-  squareCookie: 30,
-  roundDarkCookie: 20,
-  roundCookie: 10,
+  FrenchCookies: 10,
+  MexicanCookie: 10,
+  RainbowCookie: 15,
+  SerinakakerCookie: 15,
+  SpanishСookie: 15,
+  TahiniСookie: 15,
 };
 
 export default () => {
   const [ingredients, setIngredients] = useState({
-    squareCookie: 0,
-    roundDarkCookie: 0,
-    roundCookie: 0,
+    FrenchCookies: 0,
+    MexicanCookie: 0,
+    RainbowCookie: 0,
+    SerinakakerCookie: 0,
+    SpanishСookie: 0,
+    TahiniСookie: 0,
   });
   const [price, setPrice] = useState(100);
 

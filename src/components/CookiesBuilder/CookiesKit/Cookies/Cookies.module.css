@@ -8,17 +8,17 @@
     
 }
 
-.squareCookie{
+.FrenchCookies{
     border-radius: 20%;
     border: 10px solid palevioletred;
     background-color: red;
 }
-.roundDarkCookie{
+.MexicanCookie{
     border-radius: 100%;
     border: 15px solid brown;
     background-color: white;
 }
-.roundCookie{
+.RainbowCookie{
     border-radius: 100%;
     border: 2px solid yellow;
     background-color: yellow;
