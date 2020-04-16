@@ -5,21 +5,27 @@
 
     margin-right: .5rem;
     margin-bottom: .5rem;
-    
+  
+    background-size: contain;
+
+
 }
 
 .FrenchCookies{
-    border-radius: 20%;
-    border: 10px solid palevioletred;
-    background-color: red;
+    background-image: url("../../../../assets/FrenchCookies.jpg");
 }
 .MexicanCookie{
-    border-radius: 100%;
-    border: 15px solid brown;
-    background-color: white;
+    background-image: url("../../../../assets/MexicanCookie.jpg");
 }
 .RainbowCookie{
-    border-radius: 100%;
-    border: 2px solid yellow;
-    background-color: yellow;
+    background-image: url("../../../../assets/RainbowCookie.jpg");
+}
+.SerinakakerCookie{
+    background-image: url("../../../../assets/SerinakakerCookie.jpg");
+}
+.SpanishСookie{
+    background-image: url("../../../../assets/SpanishСookie.jpg");
+}
+.TahiniСookie{
+    background-image: url("../../../../assets/TahiniСookie.jpg");
 }
