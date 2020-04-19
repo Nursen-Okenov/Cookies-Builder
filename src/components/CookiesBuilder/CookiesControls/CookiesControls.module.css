@@ -1,12 +1,30 @@
 .CookiesControls {
-    border: 3px solid rgb(162, 167, 168);
-    background-color:aqua;
-    width: 300px;
-    border-radius: .5rem;
-    padding-top: .5rem;
-    padding-left: .5rem;
+  border: 3px solid rgb(162, 167, 168);
+  background-color: aqua;
+  width: 300px;
+  height: 350px;
+  border-radius: 0.5rem;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
+.orderButton {
+  border: none;
+  background-color: white;
+  color: #654321;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Permanent Marker";
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+.orderButton{
+    opacity: .8 ;
+}
+.orderButton:not(:disabled):hover{
+    opacity: .9;
+} 
