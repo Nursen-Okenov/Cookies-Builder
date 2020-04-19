@@ -7,8 +7,8 @@ const CONTROLS = [
   { label: "Mexican Cookie", type: "MexicanCookie" },
   { label: "Rainbow Cookie", type: "RainbowCookie" },
   { label: "Serinakaker Cookie", type: "SerinakakerCookie" },
-  { label: "Spanish Сookie", type: "SpanishСookie" },
-  { label: "Tahini Сookie", type: "TahiniСookie" },
+  { label: "Spanish Cookie", type: "SpanishСookie" },
+  { label: "Tahini Cookie", type: "TahiniСookie" },
 ];
 
 export default ({ ingredients, addIngredient, removeIngredient }) => {

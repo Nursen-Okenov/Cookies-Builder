@@ -1,6 +1,27 @@
 .CookiesControl {
-    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
 }
 .CookiesControl .label {
     color: white;
+    font-family: "Permanent Marker";
+    color: #654321;
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
 }
+.CookiesControl button{
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: white;
+    color:#654321;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.CookiesControl button:disabled{
+    opacity: .8 ;
+}
+.CookiesControl button:not(:disabled):hover{
+    opacity: .9;
+} 
