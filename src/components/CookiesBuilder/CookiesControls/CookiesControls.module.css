@@ -22,9 +22,9 @@
   padding: 5px 10px;
   font-size: 1rem;
 }
-.orderButton{
-    opacity: .8 ;
+.orderButton {
+  opacity: 0.8;
 }
-.orderButton:not(:disabled):hover{
-    opacity: .9;
-} 
+.orderButton:not(:disabled):hover {
+  opacity: 0.9;
+}
