@@ -11,7 +11,7 @@ const LABELS = {
   TahiniСookie: "Tahini Cookie",
 };
 
-export default ({ ingredients }) => {
+export default ({ ingredients, cancelOrder, finishOrder }) => {
   const ingredientsOutput = Object.keys(ingredients)
     .filter((ingredient) => ingredients[ingredient] > 0)
     .map((ingredient) => (
@@ -25,8 +25,10 @@ export default ({ ingredients }) => {
       <p>Congratulations! You've built a best cookies-kit of all times!</p>
       <ul>{ingredientsOutput}</ul>
       <p>Would you like to checkout?</p>
-      <Button>Checkout</Button>
-      <Button>Cancel</Button>
+      <Button click={finishOrder} green>Checkout</Button>
+      <Button click={cancelOrder} red>
+        Cancel
+      </Button>
     </div>
   );
 };

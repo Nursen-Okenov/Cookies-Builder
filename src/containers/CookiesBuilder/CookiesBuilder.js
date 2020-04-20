@@ -41,6 +41,10 @@ export default () => {
     setIsOrdering(false);
   }
 
+  function finishOrder() {
+    alert("You are no checkout page!");
+  }
+
   function addIngredient(type) {
     const newIngredients = { ...ingredients };
     newIngredients[type]++;
@@ -74,7 +78,11 @@ export default () => {
         removeIngredient={removeIngredient}
       />
       <Modal show={isOrdering} hideCallback={cancelOrder}>
-        <OrderSummary ingredients={ingredients} />
+        <OrderSummary
+          ingredients={ingredients}
+          finishOrder={finishOrder}
+          cancelOrder={cancelOrder}
+        />
       </Modal>
     </div>
   );
