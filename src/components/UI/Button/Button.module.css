@@ -1,0 +1,18 @@
+.Button {
+    border: none;
+    background-color: white;
+    color: #654321;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Permanent Marker";
+    padding: 5px 10px;
+    font-size: 1rem;
+    text-transform: uppercase ;
+  }
+  .Button {
+    opacity: 0.8;
+  }
+  .Button:not(:disabled):hover {
+    opacity: 0.9;
+  }

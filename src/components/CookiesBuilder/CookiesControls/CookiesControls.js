@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./CookiesControls.module.css";
 import CookiesControl from "./CookiesControl/CookiesControl";
+import Button from "../../UI/Button/Button";
 
 const CONTROLS = [
   { label: "French Cookies", type: "FrenchCookies" },
@@ -31,13 +32,9 @@ export default ({
   return (
     <div className={classes.CookiesControls}>
       {controlsOutput}
-      <button
-        onClick={startOrder}
-        disabled={!canOrder}
-        className={classes.orderButton}
-      >
-        ORDER
-      </button>
+      <Button click={startOrder} enabled={canOrder}>
+        Order
+      </Button>
     </div>
   );
 };
