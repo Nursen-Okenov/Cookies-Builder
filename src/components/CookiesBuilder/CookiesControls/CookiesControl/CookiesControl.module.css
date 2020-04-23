@@ -9,7 +9,7 @@
   color: white;
   font-family: "Permanent Marker";
   color: #654321;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px 5px;
 }
 .CookiesControl button {
@@ -27,4 +27,10 @@
 }
 .CookiesControl button:not(:disabled):hover {
   opacity: 0.9;
+}
+
+@media (min-width: 500px){
+    .CookiesControl .label {
+        font-size: 15px;
+      }
 }

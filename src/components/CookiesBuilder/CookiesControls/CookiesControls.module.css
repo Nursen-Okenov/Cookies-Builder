@@ -1,15 +1,12 @@
 .CookiesControls {
   border: 3px solid rgb(162, 167, 168);
   background-color: aqua;
-  width: 300px;
-  height: 450px;
   border-radius: 0.5rem;
-  padding-top: 0.5rem;
-  padding-left: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 0 .5rem;
 
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  overflow: hidden;
 }
 
