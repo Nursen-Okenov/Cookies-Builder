@@ -8,6 +8,12 @@
   left: 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
+.Open {
+  transform: translateX(0);
+}
+.Closed {
+  transform: translateX(-260px);
+}
 
 @media (min-width: 600px) {
   .Drawer {
