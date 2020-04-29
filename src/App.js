@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Layout from './components/Layout/Layout';
+import Layout from './containers/Layout/Layout';
 import CookiesBuilder from './containers/CookiesBuilder/CookiesBuilder';
 
  export default () => {
