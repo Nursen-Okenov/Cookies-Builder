@@ -1,36 +1,32 @@
 .CookiesControl {
-  box-sizing: border-box;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
   display: flex;
   align-items: center;
 }
 .CookiesControl .label {
   color: white;
-  font-family: "Permanent Marker";
-  color: #654321;
-  font-size: 15px;
-  padding: 10px 5px;
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 1.5rem;
+  padding: .4rem 1rem;
 }
 .CookiesControl button {
   width: 30px;
   height: 30px;
   border: none;
   background-color: white;
-  color: #654321;
+  color: #EC6F31;
   font-weight: bold;
   border-radius: 100%;
   cursor: pointer;
 }
 .CookiesControl button:disabled {
-  opacity: 0.8;
+  opacity: .5;
 }
 .CookiesControl button:not(:disabled):hover {
-  opacity: 0.9;
+  opacity: .8;
 }
 
-@media (min-width: 720px){
-    .CookiesControl .label {
-        font-size: 15px;
-      }
+@media (min-width: 500px) {
+  .CookiesControl .label {
+    font-size: 2rem;
+  }
 }

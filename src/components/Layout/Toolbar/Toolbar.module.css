@@ -1,14 +1,14 @@
 .Toolbar {
-  background-color: aqua;
-
   display: flex;
   justify-content: space-between;
+
+  background-color: #ec6f31;
 }
 
 .Toolbar nav {
   display: none;
 }
-@media (min-width: 720px) {
+@media (min-width: 500px) {
   .Toolbar nav {
     display: block;
   }

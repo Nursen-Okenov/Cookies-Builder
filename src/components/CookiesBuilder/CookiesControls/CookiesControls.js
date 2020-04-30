@@ -25,7 +25,7 @@ export default ({
       control={control}
       addIngredient={addIngredient}
       removeIngredient={removeIngredient}
-      desabled={ingredients[control.type] === 0}
+      disabled={ingredients[control.type] === 0}
     />
   ));
 

@@ -3,7 +3,6 @@ import classes from "./CookiesControl.module.css";
 
 export default ({ control, removeIngredient, addIngredient, disabled }) => (
   <div className={classes.CookiesControl}>
-    
     <button
       className={classes.less}
       onClick={() => removeIngredient(control.type)}

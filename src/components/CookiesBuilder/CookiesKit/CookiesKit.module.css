@@ -1,15 +1,15 @@
 .CookiesKit {
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
+  width: 100%;
 }
 .CookiesKit .bento {
   padding: 1rem;
-  padding-left: 2rem;
+  padding-top: 2rem;
   margin: 0 auto;
 
   background-color: lightgray;
   width: 100%;
-  max-width: 400px;
-  min-height: 400px;
+  min-height: 300px;
 
   display: flex;
   flex-flow: row wrap;
@@ -19,7 +19,16 @@
   overflow: hidden;
 }
 .CookiesKit .price {
-  font-size: 2rem;
+  font-size: 3rem;
+  text-align: center;
+  color: #ec6f31;
+
+  font-family: "Nanum Brush Script", cursive;
   font-weight: bold;
-  color: #654321 ;
+}
+
+@media (min-width: 500px) {
+  .CookiesKit {
+    width: 495px;
+  }
 }

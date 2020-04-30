@@ -6,9 +6,9 @@
   padding: 0;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 500px) {
   .Navigation {
     margin: 0 12px;
     flex-direction: row;
   }
-} 
+}
