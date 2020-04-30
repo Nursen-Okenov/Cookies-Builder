@@ -8,7 +8,7 @@
 .Toolbar nav {
   display: none;
 }
-@media (min-width: 600px) {
+@media (min-width: 720px) {
   .Toolbar nav {
     display: block;
   }
