@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
 
-  background-color: #ec6f31;
+  background-color: aqua;
 }
 
 .Toolbar nav {
   display: none;
 }
-@media (min-width: 500px) {
+@media (min-width: 700px) {
   .Toolbar nav {
     display: block;
   }
