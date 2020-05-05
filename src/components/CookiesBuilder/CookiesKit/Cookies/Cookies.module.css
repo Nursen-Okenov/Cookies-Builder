@@ -23,9 +23,13 @@
 }
 .SpanishСookie {
   background-image: url("../../../../assets/SpanishСookie.svg");
+  width: 55px;
+  height: 55px;
 }
 .TahiniСookie {
   background-image: url("../../../../assets/TahiniСookie.svg");
+  width: 55px;
+  height: 55px;
 }
 
 @media (min-width: 720px) {
