@@ -22,10 +22,10 @@
   background-image: url("../../../../assets/SerinakakerCookie.jpg");
 }
 .SpanishСookie {
-  background-image: url("../../../../assets/SpanishСookie.jpg");
+  background-image: url("../../../../assets/SpanishСookie.svg");
 }
 .TahiniСookie {
-  background-image: url("../../../../assets/TahiniСookie.jpg");
+  background-image: url("../../../../assets/TahiniСookie.svg");
 }
 
 @media (min-width: 720px) {

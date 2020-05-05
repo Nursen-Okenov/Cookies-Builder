@@ -7,7 +7,7 @@
   cursor: pointer;
   font-family: "Permanent Marker", cursive;
   padding: 5px 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
 }
 .Button:disabled {
