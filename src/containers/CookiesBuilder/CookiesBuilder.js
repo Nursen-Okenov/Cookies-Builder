@@ -4,6 +4,7 @@ import classes from "./CookiesBuilder.module.css";
 import CookiesControls from "../../components/CookiesBuilder/CookiesControls/CookiesControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/CookiesBuilder/OrderSummary/OrderSummary";
+import axios from "../../axios";
 const PRICES = {
   FrenchCookies: 10,
   MexicanCookie: 10,
@@ -42,7 +43,21 @@ export default () => {
   }
 
   function finishOrder() {
-    alert("You are no checkout page!");
+    const order = {
+      ingredients: ingredients,
+      price: price,
+      delivery: "Fast",
+      customer: {
+        name: "Nursen",
+        phone: "0700700402",
+        address: {
+          street: "56 Lenina",
+          city: "Karakol",
+        },
+      },
+    };
+
+    axios.post("/orders.json", order).then((response) => console.log(response));
   }
 
   function addIngredient(type) {
