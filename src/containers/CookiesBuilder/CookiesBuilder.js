@@ -5,6 +5,7 @@ import CookiesControls from "../../components/CookiesBuilder/CookiesControls/Coo
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/CookiesBuilder/OrderSummary/OrderSummary";
 import axios from "../../axios";
+import Spinner from "../../components/UI/Spinner/Spinner";
 const PRICES = {
   FrenchCookies: 10,
   MexicanCookie: 10,
@@ -86,7 +87,7 @@ export default () => {
     }
   }
 
-  let orderSummary = "Loading...";
+  let orderSummary = <Spinner />;
   if (!loading) {
     orderSummary = (
       <OrderSummary
