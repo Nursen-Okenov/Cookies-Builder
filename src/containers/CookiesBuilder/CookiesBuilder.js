@@ -26,6 +26,7 @@ export default () => {
   const [price, setPrice] = useState(100);
   const [canOrder, setCanOrder] = useState(false);
   const [isOrdering, setIsOrdering] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function checkCanOrder(ingredients) {
     const total = Object.keys(ingredients).reduce((total, ingredient) => {
@@ -56,8 +57,11 @@ export default () => {
         },
       },
     };
-
-    axios.post("/orders.json", order).then((response) => console.log(response));
+    setLoading(true);
+    axios.post("/orders.json", order).then((response) => {
+      setLoading(false);
+      setIsOrdering(false);
+    });
   }
 
   function addIngredient(type) {
@@ -82,6 +86,18 @@ export default () => {
     }
   }
 
+  let orderSummary = "Loading...";
+  if (!loading) {
+    orderSummary = (
+      <OrderSummary
+        ingredients={ingredients}
+        finishOrder={finishOrder}
+        cancelOrder={cancelOrder}
+        price={price}
+      />
+    );
+  }
+
   return (
     <div className={classes.CookiesBuilder}>
       <CookiesKit price={price} ingredients={ingredients} />
@@ -93,12 +109,7 @@ export default () => {
         removeIngredient={removeIngredient}
       />
       <Modal show={isOrdering} hideCallback={cancelOrder}>
-        <OrderSummary
-          ingredients={ingredients}
-          finishOrder={finishOrder}
-          cancelOrder={cancelOrder}
-          price={price}
-        />
+        {orderSummary}
       </Modal>
     </div>
   );
