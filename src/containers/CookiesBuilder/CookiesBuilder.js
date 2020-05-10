@@ -6,6 +6,7 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/CookiesBuilder/OrderSummary/OrderSummary";
 import axios from "../../axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import withErrorHander from "../../hoc/withErrorHander/withErrorHander";
 const PRICES = {
   FrenchCookies: 10,
   MexicanCookie: 10,
@@ -15,7 +16,7 @@ const PRICES = {
   TahiniСookie: 15,
 };
 
-export default () => {
+export default withErrorHander(() => {
   const [ingredients, setIngredients] = useState({
     FrenchCookies: 0,
     MexicanCookie: 0,
@@ -59,7 +60,7 @@ export default () => {
       },
     };
     setLoading(true);
-    axios.post("/orders.json", order).then((response) => {
+    axios.post("/orders", order).then((response) => {
       setLoading(false);
       setIsOrdering(false);
     });
@@ -114,4 +115,4 @@ export default () => {
       </Modal>
     </div>
   );
-};
+}, axios);
