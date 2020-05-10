@@ -10,16 +10,25 @@ const withErrorHander = (WrappedComponent, axios) => {
     }
 
     useEffect(() => {
-      axios.interceptors.response.use(
+      const requestEnterceptor = axios.interceptors.request.use((request) => {
+        setError(false);
+        return request;
+      });
+      const responseEnterceptor = axios.interceptors.response.use(
         (response) => response,
         (error) => setError(error)
       );
+
+      return () => {
+        axios.interceptors.request.detach(requestEnterceptor);
+        axios.interceptors.response.detach(responseEnterceptor);
+      };
     }, []);
 
     return (
       <>
         <Modal show={error} hideCallback={hideModal}>
-          Ajax didn't work!
+          {error ? error.message : "Unknown error"}
         </Modal>
         <WrappedComponent {...props} />;
       </>
