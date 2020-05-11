@@ -8,12 +8,12 @@ import axios from "../../axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHander from "../../hoc/withErrorHander/withErrorHander";
 const PRICES = {
-  FrenchCookies: 10,
-  MexicanCookie: 10,
-  RainbowCookie: 15,
-  SerinakakerCookie: 15,
-  SpanishСookie: 15,
-  TahiniСookie: 15,
+  FrenchCookies: 3.5,
+  MexicanCookie: 3.6,
+  RainbowCookie: 4,
+  SerinakakerCookie: 4.5,
+  SpanishСookie: 5,
+  TahiniСookie: 5.2,
 };
 
 export default withErrorHander(() => {
@@ -25,7 +25,7 @@ export default withErrorHander(() => {
     SpanishСookie: 0,
     TahiniСookie: 0,
   });
-  const [price, setPrice] = useState(100);
+  const [price, setPrice] = useState(50);
   const [canOrder, setCanOrder] = useState(false);
   const [isOrdering, setIsOrdering] = useState(false);
   const [loading, setLoading] = useState(false);
