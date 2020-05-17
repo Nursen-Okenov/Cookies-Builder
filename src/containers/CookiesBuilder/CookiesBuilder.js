@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CookiesKit from "../../components/CookiesBuilder/CookiesKit/CookiesKit";
 import classes from "./CookiesBuilder.module.css";
 import CookiesControls from "../../components/CookiesBuilder/CookiesControls/CookiesControls";
@@ -17,14 +17,7 @@ const PRICES = {
 };
 
 export default withErrorHander(() => {
-  const [ingredients, setIngredients] = useState({
-    FrenchCookies: 0,
-    MexicanCookie: 0,
-    RainbowCookie: 0,
-    SerinakakerCookie: 0,
-    SpanishСookie: 0,
-    TahiniСookie: 0,
-  });
+  const [ingredients, setIngredients] = useState(null);
   const [price, setPrice] = useState(50);
   const [canOrder, setCanOrder] = useState(false);
   const [isOrdering, setIsOrdering] = useState(false);
@@ -88,6 +81,27 @@ export default withErrorHander(() => {
     }
   }
 
+  useEffect(() => {
+    axios
+      .get("/ingredients.json")
+      .then((response) => setIngredients(response.data));
+  }, []);
+
+  let output = <Spinner />;
+  if (ingredients) {
+    output = (
+      <>
+        <CookiesKit price={price} ingredients={ingredients} />
+        <CookiesControls
+          startOrder={startOrder}
+          canOrder={canOrder}
+          ingredients={ingredients}
+          addIngredient={addIngredient}
+          removeIngredient={removeIngredient}
+        />
+      </>
+    );
+  }
   let orderSummary = <Spinner />;
   if (isOrdering && !loading) {
     orderSummary = (
@@ -102,14 +116,7 @@ export default withErrorHander(() => {
 
   return (
     <div className={classes.CookiesBuilder}>
-      <CookiesKit price={price} ingredients={ingredients} />
-      <CookiesControls
-        startOrder={startOrder}
-        canOrder={canOrder}
-        ingredients={ingredients}
-        addIngredient={addIngredient}
-        removeIngredient={removeIngredient}
-      />
+      {output}
       <Modal show={isOrdering} hideCallback={cancelOrder}>
         {orderSummary}
       </Modal>
