@@ -22,7 +22,7 @@ const withErrorHander = (WrappedComponent, axios) => {
         axios.interceptors.request.eject(requestEnterceptor);
         axios.interceptors.response.eject(responseEnterceptor);
       };
-    }, []);
+    }, [requestEnterceptor, responseEnterceptor]);
 
     return (
       <>
