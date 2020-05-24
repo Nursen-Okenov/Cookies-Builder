@@ -7,6 +7,7 @@ import OrderSummary from "../../components/CookiesBuilder/OrderSummary/OrderSumm
 import axios from "../../axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHander from "../../hoc/withErrorHander/withErrorHander";
+import { useHistory } from "react-router-dom";
 const PRICES = {
   FrenchCookies: 3.5,
   MexicanCookie: 3.6,
@@ -22,6 +23,8 @@ export default withErrorHander(() => {
   const [canOrder, setCanOrder] = useState(false);
   const [isOrdering, setIsOrdering] = useState(false);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
 
   function checkCanOrder(ingredients) {
     const total = Object.keys(ingredients).reduce((total, ingredient) => {
@@ -39,24 +42,7 @@ export default withErrorHander(() => {
   }
 
   function finishOrder() {
-    const order = {
-      ingredients: ingredients,
-      price: price,
-      delivery: "Fast",
-      customer: {
-        name: "Nursen",
-        phone: "0700700402",
-        address: {
-          street: "56 Lenina",
-          city: "Karakol",
-        },
-      },
-    };
-    setLoading(true);
-    axios.post("/orders.json", order).then((response) => {
-      setLoading(false);
-      setIsOrdering(false);
-    });
+    history.push("/checkout");
   }
 
   function addIngredient(type) {
