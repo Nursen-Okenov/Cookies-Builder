@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Checkout.module.css";
 import CheckoutSummary from "../../components/Checkout/CheckoutSummary/CheckoutSummary";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Route } from "react-router-dom";
 
 export default () => {
   const history = useHistory();
@@ -22,7 +22,7 @@ export default () => {
   }
 
   function checkoutContinue() {
-    history.push("/checkout/finish");
+    history.push("/checkout/contacts");
   }
   return (
     <div className={classes.Checkout}>
@@ -32,6 +32,7 @@ export default () => {
         checkoutCancel={checkoutCancel}
         checkoutContinue={checkoutContinue}
       />
+      <Route path="/checkout/contacts"></Route>
     </div>
   );
 };
