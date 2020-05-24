@@ -1,28 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Checkout.module.css";
 import CheckoutSummary from "../../components/Checkout/CheckoutSummary/CheckoutSummary";
 import { useHistory, useLocation, Route } from "react-router-dom";
+import CheckoutForm from "./CheckoutForm/CheckoutForm";
 
 export default () => {
   const history = useHistory();
   const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  let price = 0;
-  let ingredients = {};
-  query.forEach((value, key) => {
-    if (key === "price") {
-      price = +value;
-    } else {
-      ingredients[key] = +value;
-    }
-  });
+  const [ingredients, setIngredients] = useState({});
+  const [price, setPrice] = useState(0);
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const newIngredients = {};
+    query.forEach((value, key) => {
+      if (key === "price") {
+        setPrice(+value);
+      } else {
+        newIngredients[key] = +value;
+      }
+    });
+    setIngredients(newIngredients);
+  }, []);
 
   function checkoutCancel() {
     history.push("/builder");
   }
 
   function checkoutContinue() {
-    history.push("/checkout/contacts");
+    history.push("/checkout/form");
   }
   return (
     <div className={classes.Checkout}>
@@ -32,7 +38,9 @@ export default () => {
         checkoutCancel={checkoutCancel}
         checkoutContinue={checkoutContinue}
       />
-      <Route path="/checkout/contacts"></Route>
+      <Route path="/checkout/form">
+        <CheckoutForm />
+      </Route>
     </div>
   );
 };
