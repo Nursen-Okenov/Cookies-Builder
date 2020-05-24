@@ -25,7 +25,6 @@ export default withErrorHander(() => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-
   function checkCanOrder(ingredients) {
     const total = Object.keys(ingredients).reduce((total, ingredient) => {
       return total + ingredients[ingredient];
@@ -42,7 +41,18 @@ export default withErrorHander(() => {
   }
 
   function finishOrder() {
-    history.push("/checkout");
+    const queryParams = Object.keys(ingredients).map(
+      (ingredient) =>
+        encodeURIComponent(ingredient) +
+        "=" +
+        encodeURIComponent(ingredients[ingredient])
+    );
+    queryParams.push("price=" + encodeURIComponent(price.toFixed(2)));
+
+    history.push({
+      pathname: "/checkout",
+      search: queryParams.join("&"),
+    });
   }
 
   function addIngredient(type) {
@@ -70,7 +80,8 @@ export default withErrorHander(() => {
   useEffect(() => {
     axios
       .get("/ingredients.json")
-      .then((response) => setIngredients(response.data)).catch(error => {});
+      .then((response) => setIngredients(response.data))
+      .catch((error) => {});
   }, []);
 
   let output = <Spinner />;
