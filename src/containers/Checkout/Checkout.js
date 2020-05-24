@@ -1,19 +1,21 @@
 import React from "react";
 import classes from "./Checkout.module.css";
 import CheckoutSummary from "../../components/Checkout/CheckoutSummary/CheckoutSummary";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 export default () => {
   const history = useHistory();
-  const ingredients = {
-    FrenchCookies: 1,
-    MexicanCookie: 1,
-    RainbowCookie: 1,
-    SerinakakerCookie: 1,
-    SpanishСookie: 1,
-    TahiniСookie: 1,
-  };
-  const price = 123;
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  let price = 0;
+  let ingredients = {};
+  query.forEach((value, key) => {
+    if (key === "price") {
+      price = +value;
+    } else {
+      ingredients[key] = +value;
+    }
+  });
 
   function checkoutCancel() {
     history.push("/builder");
