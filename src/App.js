@@ -4,6 +4,7 @@ import CookiesBuilder from "./containers/CookiesBuilder/CookiesBuilder";
 import "./App.css";
 import Checkout from "./containers/Checkout/Checkout";
 import { Route, Switch, Redirect } from "react-router-dom";
+import Orders from "./containers/Orders/Orders"
 
 export default () => {
   return (
