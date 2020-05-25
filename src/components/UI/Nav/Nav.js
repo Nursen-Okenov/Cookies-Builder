@@ -5,6 +5,6 @@ import NavItem from './NavItem/NavItem';
 export default () => (
   <ul className={classes.Nav}>
     <NavItem url="/builder" active>Cookies Builder</NavItem>
-    <NavItem url="/checkout">Checkout</NavItem>
+    <NavItem url="/orders">Orders</NavItem>
   </ul>
 );
