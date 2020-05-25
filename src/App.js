@@ -19,6 +19,9 @@ export default () => {
           <Route path="/checkout">
             <Checkout />
           </Route>
+          <Route path="/orders">
+            <Orders />
+          </Route>
         </Switch>
       </Layout>
     </div>
