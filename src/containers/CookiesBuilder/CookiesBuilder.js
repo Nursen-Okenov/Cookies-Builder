@@ -112,7 +112,7 @@ export default withErrorHander(() => {
 
   return (
     <div className={classes.CookiesBuilder}>
-      <h1>Cookies builder</h1>
+      <h2>Cookies builder</h2>
       {output}
       <Modal show={isOrdering} hideCallback={cancelOrder}>
         {orderSummary}
