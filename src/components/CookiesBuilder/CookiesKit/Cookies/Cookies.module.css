@@ -11,15 +11,23 @@
 
 .FrenchCookies {
   background-image: url("../../../../assets/FrenchCookie.svg");
+  width: 55px;
+  height: 55px;
 }
 .MexicanCookie {
   background-image: url("../../../../assets/MexicanCookie.svg");
+  width: 55px;
+  height: 55px;
 }
 .RainbowCookie {
   background-image: url("../../../../assets/RainbowCookie.svg");
+  width: 55px;
+  height: 55px;
 }
 .SerinakakerCookie {
   background-image: url("../../../../assets/SerinakakerCookie.svg");
+  width: 55px;
+  height: 55px;
 }
 .SpanishСookie {
   background-image: url("../../../../assets/SpanishСookie.svg");
