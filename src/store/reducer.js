@@ -7,10 +7,10 @@ const initailState = {
 
 export default (state = initailState, action) => {
   switch (action.type) {
-    case actions.ADD_INGREDIENTS:
+    case actions.ADD_INGREDIENT:
       return state;
 
-    case actions.REMOVE_INGREDIENTS:
+    case actions.REMOVE_INGREDIENT:
       return state;
 
     default:
