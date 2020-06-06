@@ -12,28 +12,12 @@ import { useSelector } from "react-redux";
 
 export default withErrorHander(() => {
   const { ingredients, price } = useSelector((state) => state);
-
   const [isOrdering, setIsOrdering] = useState(false);
   const history = useHistory();
 
   const canOrder = Object.values(ingredients).reduce((canOrder, number) => {
     return !canOrder ? number > 0 : canOrder;
   }, false);
-
-  function finishOrder() {
-    const queryParams = Object.keys(ingredients).map(
-      (ingredient) =>
-        encodeURIComponent(ingredient) +
-        "=" +
-        encodeURIComponent(ingredients[ingredient])
-    );
-    queryParams.push("price=" + encodeURIComponent(price.toFixed(2)));
-
-    history.push({
-      pathname: "/checkout",
-      search: queryParams.join("&"),
-    });
-  }
 
   /*
   useEffect(() => {
@@ -62,7 +46,7 @@ export default withErrorHander(() => {
     orderSummary = (
       <OrderSummary
         ingredients={ingredients}
-        finishOrder={finishOrder}
+        finishOrder={() => history.push("/checkout")}
         cancelOrder={() => setIsOrdering(false)}
         price={price}
       />

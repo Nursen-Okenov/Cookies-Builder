@@ -6,26 +6,12 @@ import { useHistory, useLocation, Route } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import withErrorHander from "../../hoc/withErrorHander/withErrorHander";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import { useSelector } from "react-redux";
 
 export default withErrorHander(() => {
   const history = useHistory();
-  const location = useLocation();
-  const [ingredients, setIngredients] = useState({});
-  const [price, setPrice] = useState(0);
+  const { ingredients, price } = useSelector((state) => state);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const query = new URLSearchParams(location.search);
-    const newIngredients = {};
-    query.forEach((value, key) => {
-      if (key === "price") {
-        setPrice(+value);
-      } else {
-        newIngredients[key] = +value;
-      }
-    });
-    setIngredients(newIngredients);
-  }, []);
 
   function checkoutCancel() {
     history.push("/builder");
