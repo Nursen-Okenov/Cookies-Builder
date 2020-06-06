@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CookiesKit from "../../components/CookiesBuilder/CookiesKit/CookiesKit";
 import classes from "./CookiesBuilder.module.css";
 import CookiesControls from "../../components/CookiesBuilder/CookiesControls/CookiesControls";
@@ -13,24 +13,12 @@ import { useSelector } from "react-redux";
 export default withErrorHander(() => {
   const { ingredients, price } = useSelector((state) => state);
 
-  const [canOrder, setCanOrder] = useState(false);
   const [isOrdering, setIsOrdering] = useState(false);
   const history = useHistory();
 
-  function checkCanOrder(ingredients) {
-    const total = Object.keys(ingredients).reduce((total, ingredient) => {
-      return total + ingredients[ingredient];
-    }, 0);
-    setCanOrder(total > 0);
-  }
-
-  function startOrder() {
-    setIsOrdering(true);
-  }
-
-  function cancelOrder() {
-    setIsOrdering(false);
-  }
+  const canOrder = Object.values(ingredients).reduce((canOrder, number) => {
+    return !canOrder ? number > 0 : canOrder;
+  }, false);
 
   function finishOrder() {
     const queryParams = Object.keys(ingredients).map(
@@ -47,27 +35,6 @@ export default withErrorHander(() => {
     });
   }
 
-  function addIngredient(type) {
-    const newIngredients = { ...ingredients };
-    newIngredients[type]++;
-    //setIngredients(newIngredients);
-    checkCanOrder(newIngredients);
-
-    //const newPrice = price + PRICES[type];
-    //setPrice(newPrice);
-  }
-
-  function removeIngredient(type) {
-    if (ingredients[type] >= 1) {
-      const newIngredients = { ...ingredients };
-      newIngredients[type]--;
-      //setIngredients(newIngredients);
-      checkCanOrder(newIngredients);
-
-      //const newPrice = price - PRICES[type];
-      //setPrice(newPrice);
-    }
-  }
   /*
   useEffect(() => {
     axios
@@ -83,11 +50,9 @@ export default withErrorHander(() => {
       <>
         <CookiesKit price={price} ingredients={ingredients} />
         <CookiesControls
-          startOrder={startOrder}
+          startOrder={() => setIsOrdering(true)}
           canOrder={canOrder}
           ingredients={ingredients}
-          addIngredient={addIngredient}
-          removeIngredient={removeIngredient}
         />
       </>
     );
@@ -98,7 +63,7 @@ export default withErrorHander(() => {
       <OrderSummary
         ingredients={ingredients}
         finishOrder={finishOrder}
-        cancelOrder={cancelOrder}
+        cancelOrder={() => setIsOrdering(false)}
         price={price}
       />
     );
@@ -108,7 +73,7 @@ export default withErrorHander(() => {
     <div className={classes.CookiesBuilder}>
       <h2>Cookies builder</h2>
       {output}
-      <Modal show={isOrdering} hideCallback={cancelOrder}>
+      <Modal show={isOrdering} hideCallback={canOrder}>
         {orderSummary}
       </Modal>
     </div>

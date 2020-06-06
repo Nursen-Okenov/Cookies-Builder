@@ -12,19 +12,11 @@ const CONTROLS = [
   { label: "Tahini Cookie", type: "TahiniСookie" },
 ];
 
-export default ({
-  canOrder,
-  ingredients,
-  addIngredient,
-  removeIngredient,
-  startOrder,
-}) => {
+export default ({ canOrder, ingredients, startOrder }) => {
   const controlsOutput = CONTROLS.map((control) => (
     <CookiesControl
       key={control.type}
       control={control}
-      addIngredient={addIngredient}
-      removeIngredient={removeIngredient}
       disabled={ingredients[control.type] === 0}
     />
   ));

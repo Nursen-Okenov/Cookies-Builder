@@ -3,7 +3,7 @@ import classes from "./CookiesControl.module.css";
 import { useDispatch } from "react-redux";
 import { REMOVE_INGREDIENT, ADD_INGREDIENT } from "../../../../store/actions";
 
-export default ({ control, removeIngredient, addIngredient, disabled }) => {
+export default ({ control, disabled }) => {
   const dispatch = useDispatch();
 
   return (
