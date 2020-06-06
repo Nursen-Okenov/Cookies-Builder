@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "./Checkout.module.css";
 import axios from "../../axios";
 import CheckoutSummary from "../../components/Checkout/CheckoutSummary/CheckoutSummary";
-import { useHistory, useLocation, Route } from "react-router-dom";
+import { useHistory, Route } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import withErrorHander from "../../hoc/withErrorHander/withErrorHander";
 import Spinner from "../../components/UI/Spinner/Spinner";
