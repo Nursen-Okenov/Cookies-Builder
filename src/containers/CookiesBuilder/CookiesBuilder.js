@@ -8,8 +8,9 @@ import axios from "../../axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHander from "../../hoc/withErrorHander/withErrorHander";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 const PRICES = {
-  FrenchCookies: 3.5,
+  FrenchCookie: 3.5,
   MexicanCookie: 3.6,
   RainbowCookie: 4,
   SerinakakerCookie: 4.5,
@@ -18,7 +19,8 @@ const PRICES = {
 };
 
 export default withErrorHander(() => {
-  const [ingredients, setIngredients] = useState(null);
+  const { ingredients } = useSelector((state) => state);
+
   const [price, setPrice] = useState(50);
   const [canOrder, setCanOrder] = useState(false);
   const [isOrdering, setIsOrdering] = useState(false);
@@ -57,7 +59,7 @@ export default withErrorHander(() => {
   function addIngredient(type) {
     const newIngredients = { ...ingredients };
     newIngredients[type]++;
-    setIngredients(newIngredients);
+    //setIngredients(newIngredients);
     checkCanOrder(newIngredients);
 
     const newPrice = price + PRICES[type];
@@ -68,20 +70,21 @@ export default withErrorHander(() => {
     if (ingredients[type] >= 1) {
       const newIngredients = { ...ingredients };
       newIngredients[type]--;
-      setIngredients(newIngredients);
+      //setIngredients(newIngredients);
       checkCanOrder(newIngredients);
 
       const newPrice = price - PRICES[type];
       setPrice(newPrice);
     }
   }
-
+  /*
   useEffect(() => {
     axios
       .get("/ingredients.json")
       .then((response) => setIngredients(response.data))
       .catch((error) => {});
   }, []);
+*/
 
   let output = <Spinner />;
   if (ingredients) {

@@ -1,19 +1,33 @@
 import * as actions from "./actions";
 
 const initailState = {
-  ingredients: null,
+  ingredients: {
+    FrenchCookie: 1,
+    MexicanCookie: 1,
+    RainbowCookie: 1,
+    SerinakakerCookie: 1,
+    SpanishСookie: 1,
+    TahiniСookie: 1,
+  },
   price: 50,
 };
 
 export default (state = initailState, action) => {
   switch (action.type) {
     case actions.ADD_INGREDIENT:
-        console.log("indredient added");
-      return state;
+      return {
+        ...state,
+        ingredients: {
+          ...state.ingredients,
+          [action.ingredient]: state.ingredients[action.ingredient] + 1,
+        },
+      };
 
     case actions.REMOVE_INGREDIENT:
-        console.log("indredient removed");
-      return state;
+      return {
+        ...state,
+        [action.ingredient]: state.ingredients[action.ingredient] - 1,
+      };
 
     default:
       return state;
