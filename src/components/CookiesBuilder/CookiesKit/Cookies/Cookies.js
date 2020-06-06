@@ -19,7 +19,7 @@ export default memo(({ type }) => {
   };
 
   switch (type) {
-    case "FrenchCookies":
+    case "FrenchCookie":
       cookiesClasses.push(classes.FrenchCookies);
       break;
     case "MexicanCookie":

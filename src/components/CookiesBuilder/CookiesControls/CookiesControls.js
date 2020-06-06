@@ -4,7 +4,7 @@ import CookiesControl from "./CookiesControl/CookiesControl";
 import Button from "../../UI/Button/Button";
 
 const CONTROLS = [
-  { label: "French Cookies", type: "FrenchCookies" },
+  { label: "French Cookie", type: "FrenchCookie" },
   { label: "Mexican Cookie", type: "MexicanCookie" },
   { label: "Rainbow Cookie", type: "RainbowCookie" },
   { label: "Serinakaker Cookie", type: "SerinakakerCookie" },
