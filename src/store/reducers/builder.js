@@ -33,10 +33,11 @@ export default (state = initailState, action) => {
         price: state.price - state.ingredients[action.ingredient].price,
       };
 
-      case types.SET_INGREDIENTS:
+    case types.SET_INGREDIENTS:
       return {
         ...state,
         ingredients: action.ingredients,
+        price: initailState.price,
       };
 
     default:
