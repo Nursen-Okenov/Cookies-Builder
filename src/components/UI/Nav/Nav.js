@@ -1,11 +1,14 @@
-import React from 'react';
-import classes from './Nav.module.css';
-import NavItem from './NavItem/NavItem';
+import React from "react";
+import classes from "./Nav.module.css";
+import NavItem from "./NavItem/NavItem";
 
 export default () => (
   <ul className={classes.Nav}>
-    <NavItem url="/builder" active>Cookies Builder</NavItem>
-    
+    <NavItem url="/builder" active>
+      Cookies Builder
+    </NavItem>
+
     <NavItem url="/orders">Orders</NavItem>
+    <NavItem url="/auth">Authenticate</NavItem>
   </ul>
 );
