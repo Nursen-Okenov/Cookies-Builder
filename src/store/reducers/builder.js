@@ -6,32 +6,20 @@ const initailState = {
 };
 
 export default (state = initailState, action) => {
+  const newState = { ...state };
+  
   switch (action.type) {
     case types.ADD_INGREDIENT:
-      return {
-        ...state,
-        ingredients: {
-          ...state.ingredients,
-          [action.ingredient]: {
-            ...state.ingredients[action.ingredient],
-            quantity: state.ingredients[action.ingredient].quantity + 1,
-          },
-        },
-        price: state.price + state.ingredients[action.ingredient].price,
-      };
+      newState.ingredients[action.ingredient].quantity++;
+      newState.price = state.price + state.ingredients[action.ingredient].price;
+
+      return newState;
 
     case types.REMOVE_INGREDIENT:
-      return {
-        ...state,
-        ingredients: {
-          ...state.ingredients,
-          [action.ingredient]: {
-            ...state.ingredients[action.ingredient],
-            quantity: state.ingredients[action.ingredient].quantity - 1,
-          },
-        },
-        price: state.price - state.ingredients[action.ingredient].price,
-      };
+      newState.ingredients[action.ingredient].quantity--;
+      newState.price = state.price - state.ingredients[action.ingredient].price;
+
+      return newState;
 
     case types.SET_INGREDIENTS:
       return {
@@ -41,6 +29,6 @@ export default (state = initailState, action) => {
       };
 
     default:
-      return state;
+      return newState;
   }
 };
