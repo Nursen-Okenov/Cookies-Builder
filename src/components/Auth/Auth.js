@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import withAxios from "../../hoc/withAxios/withAxios";
 import classes from "./Auth.module.css";
@@ -9,14 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default withAxios(() => {
   const dispatch = useDispatch();
+  const [ method, setMethod ] = useState(null);
   const { loading, error } = useSelector((state) => state.auth);
 
   const formSubmitted = (event) => {
     start(dispatch);
 
     const data = new FormData(event.target);
-    auth(dispatch, data.get("email"), data.get("password"));
-
+    auth(dispatch, method, data.get('email'), data.get('password'));
     event.preventDefault();
   };
 
@@ -33,7 +33,8 @@ export default withAxios(() => {
           required
           minLength="6"
         />
-        <Button green>Submit</Button>
+        <Button click={() => setMethod('signin')} green>Sign in</Button>
+        <Button click={() => setMethod('signup')} red>Sign up</Button>
       </form>
     );
   }
