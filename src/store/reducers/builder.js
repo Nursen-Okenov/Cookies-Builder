@@ -1,4 +1,4 @@
-import * as actions from "./actions";
+import * as types from "../actions/types";
 
 const initailState = {
   ingredients: {
@@ -23,7 +23,7 @@ const PRICES = {
 
 export default (state = initailState, action) => {
   switch (action.type) {
-    case actions.ADD_INGREDIENT:
+    case types.ADD_INGREDIENT:
       return {
         ...state,
         ingredients: {
@@ -33,7 +33,7 @@ export default (state = initailState, action) => {
         price: state.price + PRICES[action.ingredient],
       };
 
-    case actions.REMOVE_INGREDIENT:
+    case types.REMOVE_INGREDIENT:
       return {
         ...state,
         ingredients: {
