@@ -13,6 +13,6 @@ export const fail = (dispatch, errors) => dispatch({
   type: AUTH_FAIL, errors
 });
 
-export const auth = (dispatch, email, password) => axios.post()
+export const auth = (dispatch, email, password) => axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAo_6OwVQr5zI47ZHPiI21Y3RwQGpRwl5w" , { email, password })
   .then(({ data }) => success(dispatch, data))
   .catch(error => fail(dispatch, error)); 
