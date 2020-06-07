@@ -3,11 +3,11 @@ import Cookies from "./Cookies/Cookies";
 import classes from "./CookiesKit.module.css";
 
 export default ({ price, ingredients }) => {
-  let ingredientsOutput = [];
+  const ingredientsOutput = [];
 
-  Object.keys(ingredients).forEach((type) => {
-    for (let i = 0; i < ingredients[type]; i++) {
-      ingredientsOutput.push(<Cookies key={type + i} type={type} />);
+  Object.keys(ingredients).forEach((ingredient) => {
+    for (let i = 0; i < ingredients[ingredient].quantity; i++) {
+      ingredientsOutput.push(<Cookies key={ingredient + i} type={ingredient} />);
     }
   });
 

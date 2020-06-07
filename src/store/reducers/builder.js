@@ -2,23 +2,14 @@ import * as types from "../actions/types";
 
 const initailState = {
   ingredients: {
-    FrenchCookie: 1,
-    MexicanCookie: 1,
-    RainbowCookie: 1,
-    SerinakakerCookie: 1,
-    SpanishСookie: 1,
-    TahiniСookie: 1,
+    FrenchCookie: { quantity: 1, price: 3.5, label: "FrenchCookie" },
+    MexicanCookie: { quantity: 1, price: 3.6, label: "Mexican Cookie" },
+    RainbowCookie: { quantity: 1, price: 4, label: "Rainbow Cookie" },
+    SerinakakerCookie: { quantity: 1, price: 4.5, label: "Serinakaker Cookie" },
+    SpanishСookie: { quantity: 1, price: 5, label: "Spanish Сookie" },
+    TahiniСookie: { quantity: 1, price: 5.2, label: "Tahini Сookie" },
   },
   price: 50,
-};
-
-const PRICES = {
-  FrenchCookie: 3.5,
-  MexicanCookie: 3.6,
-  RainbowCookie: 4,
-  SerinakakerCookie: 4.5,
-  SpanishСookie: 5,
-  TahiniСookie: 5.2,
 };
 
 export default (state = initailState, action) => {
@@ -28,9 +19,12 @@ export default (state = initailState, action) => {
         ...state,
         ingredients: {
           ...state.ingredients,
-          [action.ingredient]: state.ingredients[action.ingredient] + 1,
+          [action.ingredient]: {
+            ...state.ingredients[action.ingredient],
+            quantity: state.ingredients[action.ingredient].quantity + 1,
+          },
         },
-        price: state.price + PRICES[action.ingredient],
+        price: state.price + state.ingredients[action.ingredient].price,
       };
 
     case types.REMOVE_INGREDIENT:
@@ -38,9 +32,12 @@ export default (state = initailState, action) => {
         ...state,
         ingredients: {
           ...state.ingredients,
-          [action.ingredient]: state.ingredients[action.ingredient] + 1,
+          [action.ingredient]: {
+            ...state.ingredients[action.ingredient],
+            quantity: state.ingredients[action.ingredient].quantity - 1,
+          },
         },
-        price: state.price - PRICES[action.ingredient],
+        price: state.price - state.ingredients[action.ingredient].price,
       };
 
     default:

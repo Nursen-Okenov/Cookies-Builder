@@ -3,21 +3,13 @@ import classes from "./CookiesControls.module.css";
 import CookiesControl from "./CookiesControl/CookiesControl";
 import Button from "../../UI/Button/Button";
 
-const CONTROLS = [
-  { label: "French Cookie", type: "FrenchCookie" },
-  { label: "Mexican Cookie", type: "MexicanCookie" },
-  { label: "Rainbow Cookie", type: "RainbowCookie" },
-  { label: "Serinakaker Cookie", type: "SerinakakerCookie" },
-  { label: "Spanish Cookie", type: "SpanishСookie" },
-  { label: "Tahini Cookie", type: "TahiniСookie" },
-];
-
 export default ({ canOrder, ingredients, startOrder }) => {
-  const controlsOutput = CONTROLS.map((control) => (
+  const controlsOutput = Object.keys(ingredients).map((ingredient) => (
     <CookiesControl
-      key={control.type}
-      control={control}
-      disabled={ingredients[control.type] === 0}
+      key={ingredient}
+      ingredient={ingredient}
+      label={ingredients[ingredient].label}
+      disabled={ingredients[ingredient].quantity === 0}
     />
   ));
 

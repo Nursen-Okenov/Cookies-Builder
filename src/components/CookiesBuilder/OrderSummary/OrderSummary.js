@@ -2,21 +2,12 @@ import React from "react";
 import classes from "./OrderSummary.module.css";
 import Button from "../../UI/Button/Button";
 
-const LABELS = {
-  FrenchCookies: "French Cookies",
-  MexicanCookie: "Mexican Cookie",
-  RainbowCookie: "Rainbow Cookie",
-  SerinakakerCookie: "Serinakaker Cookie",
-  SpanishСookie: "Spanish Cookie",
-  TahiniСookie: "Tahini Cookie",
-};
-
 export default ({ ingredients, cancelOrder, finishOrder, price }) => {
   const ingredientsOutput = Object.keys(ingredients)
-    .filter((ingredient) => ingredients[ingredient] > 0)
+    .filter((ingredient) => ingredients[ingredient].quantity > 0)
     .map((ingredient) => (
       <li key={ingredient}>
-        {LABELS[ingredient]}: {ingredients[ingredient]}
+        {ingredients[ingredient].label}: {ingredients[ingredient].quantity}
       </li>
     ));
 
