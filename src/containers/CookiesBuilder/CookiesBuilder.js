@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { load } from "../../store/actions/builder";
 
 export default withErrorHander(() => {
-  const { ingredients, price } = useSelector((state) => state);
+  const { ingredients, price } = useSelector(state => state.builder);
   const [isOrdering, setIsOrdering] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
