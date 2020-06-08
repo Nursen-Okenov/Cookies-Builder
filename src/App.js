@@ -6,6 +6,7 @@ import Checkout from "./components/Checkout/Checkout";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Orders from "./components/Orders/Orders";
 import Auth from "./components/Auth/Auth";
+import Logout from "./components/Logout/Logout";
 
 export default () => {
   return (
@@ -26,6 +27,9 @@ export default () => {
           </Route>
           <Route path="/auth">
             <Auth />
+          </Route>
+          <Route path="/logout">
+            <Logout />
           </Route>
         </Switch>
       </Layout>
