@@ -6,17 +6,19 @@ import Button from "../UI/Button/Button";
 import { start, auth } from "../../store/actions/auth";
 import Spinner from "../UI/Spinner/Spinner";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useLocation } from "react-router-dom";
 
 export default withAxios(() => {
   const dispatch = useDispatch();
-  const [ method, setMethod ] = useState(null);
-  const { loading, error } = useSelector((state) => state.auth);
+  const [method, setMethod] = useState(null);
+  const { loading, error, token } = useSelector((state) => state.auth);
+  const location = useLocation();
 
   const formSubmitted = (event) => {
     start(dispatch);
 
     const data = new FormData(event.target);
-    auth(dispatch, method, data.get('email'), data.get('password'));
+    auth(dispatch, method, data.get("email"), data.get("password"));
     event.preventDefault();
   };
 
@@ -33,8 +35,12 @@ export default withAxios(() => {
           required
           minLength="6"
         />
-        <Button click={() => setMethod('signin')} green>Sign in</Button>
-        <Button click={() => setMethod('signup')} red>Sign up</Button>
+        <Button click={() => setMethod("signin")} green>
+          Sign in
+        </Button>
+        <Button click={() => setMethod("signup")} red>
+          Sign up
+        </Button>
       </form>
     );
   }
@@ -43,10 +49,17 @@ export default withAxios(() => {
     errorOutput = <h4 className={classes.error}>{error.message}</h4>;
   }
 
+  const [, redirect] = location.search.split("?");
+  let redirectOutput = null;
+  if (token !== null) {
+    redirectOutput = <Redirect to={"/" + redirect ? redirect : ""} />;
+  }
+
   return (
     <div className={classes.Auth}>
       {formOutput}
       {errorOutput}
+      {redirectOutput}
     </div>
   );
 }, axios);
