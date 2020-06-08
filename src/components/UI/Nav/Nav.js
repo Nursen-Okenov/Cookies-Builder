@@ -1,14 +1,17 @@
 import React from "react";
 import classes from "./Nav.module.css";
 import NavItem from "./NavItem/NavItem";
+import { useSelector } from "react-redux";
 
-export default () => (
-  <ul className={classes.Nav}>
-    <NavItem url="/builder" active>
-      Cookies Builder
-    </NavItem>
+export default () => {
+  const isAuthenticated = useSelector((state) => state.auth.token !== null);
 
-    <NavItem url="/orders">Orders</NavItem>
-    <NavItem url="/auth">Authenticate</NavItem>
-  </ul>
-);
+  return (
+    <ul className={classes.Nav}>
+      <NavItem url="/builder">Sushi Builder</NavItem>
+      {isAuthenticated ? <NavItem url="/orders">Orders</NavItem> : null}
+      {!isAuthenticated ? <NavItem url="/auth">Authenticate</NavItem> : null}
+      {isAuthenticated ? <NavItem url="/logout">Logout</NavItem> : null}
+    </ul>
+  );
+};
