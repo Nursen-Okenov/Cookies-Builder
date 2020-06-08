@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "../../components/UI/Modal/Modal";
 
-const withAxios = (WrappedComponent, axios) => {
+const withErrorHandler = (WrappedComponent, axios) => {
   return (props) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -9,12 +9,13 @@ const withAxios = (WrappedComponent, axios) => {
     function hideModal() {
       setError(false);
     }
-    const requestEnterceptor = axios.interceptors.request.use((request) => {
+
+    const requestInterceptor = axios.interceptors.request.use((request) => {
       setError(false);
       setLoading(true);
       return request;
     });
-    const responseEnterceptor = axios.interceptors.response.use(
+    const responseInterceptor = axios.interceptors.response.use(
       (response) => {
         setLoading(false);
         return response;
@@ -28,19 +29,20 @@ const withAxios = (WrappedComponent, axios) => {
 
     useEffect(() => {
       return () => {
-        axios.interceptors.request.eject(requestEnterceptor);
-        axios.interceptors.response.eject(responseEnterceptor);
+        axios.interceptors.request.eject(requestInterceptor);
+        axios.interceptors.response.eject(responseInterceptor);
       };
-    }, [requestEnterceptor, responseEnterceptor]);
+    }, [requestInterceptor, responseInterceptor]);
 
     return (
       <>
         <Modal show={error} hideCallback={hideModal}>
           {error ? error.message : "Unknown error"}
         </Modal>
-        <WrappedComponent loading={loading} {...props} />;
+        <WrappedComponent loading={loading} {...props} />
       </>
     );
   };
 };
-export default withAxios;
+
+export default withErrorHandler;

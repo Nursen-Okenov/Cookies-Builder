@@ -58,7 +58,6 @@ const signInUrl =
   key;
 const signUpUrl =
   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + key;
-
 export const auth = (dispatch, method, email, password) =>
   axios
     .post(method === "signin" ? signInUrl : signUpUrl, {
@@ -73,8 +72,8 @@ export const auth = (dispatch, method, email, password) =>
       localStorage.setItem("expirationDate", expirationDate);
       localStorage.setItem("idToken", data.idToken);
       localStorage.setItem("localId", data.localId);
+
       success(dispatch, data);
       timeout(dispatch, +data.expiresIn);
     })
-
     .catch((error) => fail(dispatch, error));
