@@ -10,11 +10,9 @@ import withAxios from "../../hoc/withAxios/withAxios";
 export default withAxios(() => {
   const dispatch = useDispatch();
   const { orders } = useSelector((state) => state.orders);
-  const { token } = useSelector(state => state.auth);
+  const { token, id } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    load(dispatch, token);
-  }, [dispatch, token]);
+  useEffect(() => {}, [dispatch, token, id]);
 
   let ordersOutput = <Spinner />;
   if (orders) {
