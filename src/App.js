@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "./containers/Layout/Layout";
 import CookiesBuilder from "./containers/CookiesBuilder/CookiesBuilder";
 import "./App.css";
@@ -7,8 +7,12 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Orders from "./components/Orders/Orders";
 import Auth from "./components/Auth/Auth";
 import Logout from "./components/Logout/Logout";
+import { restore } from "./store/actions/auth";
+import { useDispatch } from "react-redux";
 
 export default () => {
+  const dispatch = useDispatch();
+  useEffect(() => restore(dispatch));
   return (
     <div className="App">
       <Layout>
