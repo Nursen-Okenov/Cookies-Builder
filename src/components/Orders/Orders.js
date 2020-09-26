@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import axios from "../../axios";
-import Order from "../../components/Orders/Order/Order";
+import Order from "./Order/Order";
+import withAxios from "../../hoc/withAxios/withAxios";
 import classes from "./Orders.module.css";
-import Spinner from "../../components/UI/Spinner/Spinner";
+import Spinner from "../UI/Spinner/Spinner";
 import { load } from "../../store/actions/orders";
 import { useDispatch, useSelector } from "react-redux";
-import withAxios from "../../hoc/withAxios/withAxios";
 
 export default withAxios(() => {
   const dispatch = useDispatch();
   const { orders } = useSelector((state) => state.orders);
   const { token, id } = useSelector((state) => state.auth);
 
-  useEffect(() => {}, [dispatch, token, id]);
+  useEffect(() => {
+    load(dispatch, token, id);
+  }, [dispatch, token]);
 
   let ordersOutput = <Spinner />;
   if (orders) {
@@ -23,10 +25,9 @@ export default withAxios(() => {
   if (orders === null) {
     ordersOutput = <h3>No orders found</h3>;
   }
-
   return (
     <div className={classes.Orders}>
-      <h2>Orders</h2>
+      <h1>Orders</h1>
       {ordersOutput}
     </div>
   );

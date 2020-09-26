@@ -46,6 +46,7 @@ export default memo(({ type }) => {
     position: "absolute",
     top: position.y + "px",
     left: position.x + "px",
+    transform: "rotate(" + Math.random() * 180 + "deg" + ")",
   };
 
   return <div style={stylePos} className={cookiesClasses.join(" ")}></div>;
