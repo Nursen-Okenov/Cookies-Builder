@@ -53,11 +53,12 @@ export const timeout = (dispatch, seconds) =>
   setTimeout(() => logout(dispatch), seconds * 1000);
 
 const key = "AIzaSyAo_6OwVQr5zI47ZHPiI21Y3RwQGpRwl5w";
-const signInUrl =
-  "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
-  key;
 const signUpUrl =
-  "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + key;
+"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + key;
+const signInUrl =
+"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
+  key;
+
 export const auth = (dispatch, method, email, password) =>
   axios
     .post(method === "signin" ? signInUrl : signUpUrl, {
@@ -70,6 +71,7 @@ export const auth = (dispatch, method, email, password) =>
         new Date().getTime() + data.expiresIn * 1000
       );
       localStorage.setItem("expirationDate", expirationDate);
+
       localStorage.setItem("idToken", data.idToken);
       localStorage.setItem("localId", data.localId);
 

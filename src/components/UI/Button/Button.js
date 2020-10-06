@@ -6,11 +6,10 @@ export default ({ children, click, enabled, red, green }) => {
 
   if (red) buttonClasses.push(classes.red);
   if (green) buttonClasses.push(classes.green);
-
   return (
     <button
       onClick={click}
-      className={buttonClasses.join(' ')}
+      className={buttonClasses.join(" ")}
       disabled={enabled === undefined ? false : !enabled}
     >
       {children}

@@ -1,26 +1,40 @@
 .Button {
   border: none;
-  background-color: white;
-  color: #654321;
+  background-color: green;
+  color: white;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  font-family: "Permanent Marker", cursive;
-  padding: 5px 10px;
-  font-size: 1.3rem;
+  padding: 5px 15px;
+  font-size: 18px;
   text-transform: uppercase;
+  transition: all 1s;
+  margin-bottom: 8px;
+  margin-right: 5px;
+  margin-left: 10px;
+  font-family: "Permanent Marker", cursive;
+}
+.Button:active {
+  border-bottom: 1px solid;
+  transform: translate(0px, 5px);
 }
 .Button:disabled {
-  opacity: .5;
+  opacity: 0.5;
 }
 .Button:not(:disabled):hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 .green {
-  background-color: rgb(43, 180, 43);
+  background-color: rgb(19, 97, 19);
   color: white;
+  border-bottom: 5px solid rgb(9, 77, 15);
+  border-radius: 3px;
+  margin-left: 10px;
 }
 .red {
-  background-color: rgb(228, 43, 43);
+  background-color: rgba(255, 0, 0, 0.8);
   color: white;
+  border-bottom: 5px solid rgb(245, 22, 22);
+  border-radius: 3px;
+  margin-left: 10px;
 }

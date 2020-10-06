@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { start, auth } from "../../store/actions/auth";
 import withAxios from "../../hoc/withAxios/withAxios";
 import classes from "./Auth.module.css";
 import Button from "../UI/Button/Button";
-import { start, auth } from "../../store/actions/auth";
 import Spinner from "../UI/Spinner/Spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useLocation } from "react-router-dom";
@@ -19,10 +19,12 @@ export default withAxios(() => {
 
     const data = new FormData(event.target);
     auth(dispatch, method, data.get("email"), data.get("password"));
+
     event.preventDefault();
   };
 
   let formOutput = <Spinner />;
+
   if (!loading) {
     formOutput = (
       <form onSubmit={formSubmitted}>
@@ -57,8 +59,8 @@ export default withAxios(() => {
 
   return (
     <div className={classes.Auth}>
-      {formOutput}
       {errorOutput}
+      {formOutput}
       {redirectOutput}
     </div>
   );
