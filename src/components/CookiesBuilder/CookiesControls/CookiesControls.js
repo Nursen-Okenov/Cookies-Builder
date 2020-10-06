@@ -3,7 +3,7 @@ import classes from "./CookiesControls.module.css";
 import CookiesControl from "./CookiesControl/CookiesControl";
 import Button from "../../UI/Button/Button";
 
-export default ({ ingredients, canOrder, startOrder }) => {
+export default ({ canOrder, ingredients, startOrder }) => {
   const controlsOutput = Object.keys(ingredients).map((ingredient) => (
     <CookiesControl
       key={ingredient}

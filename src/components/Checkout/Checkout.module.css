@@ -1,7 +1,5 @@
-.Checkout {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  margin-top: 65px;
+.Checkout{
+    display: flex;
+    flex-flow:column nowrap;
+    align-items: center;
 }

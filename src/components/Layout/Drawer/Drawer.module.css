@@ -1,24 +1,23 @@
 .Drawer .content {
-  width: 250px;
-  background-color: lightskyblue;
+  width: 260px;
+  height: 100%;
+  background-color: lightskyblue ;
   position: fixed;
-  z-index: 250;
+  z-index: 200;
   top: 0;
   left: 0;
-  height: 100%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-  transition: transform 0.4s ease-in;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .6);
+  transition: transform .3s ease-out;
 }
 
 .Open {
   transform: translateX(0);
 }
-
-.Close {
-  transform: translateX(-250px);
+.Closed {
+  transform: translateX(-260px);
 }
 
-@media (min-width: 670px) {
+@media (min-width: 700px) {
   .Drawer {
     display: none;
   }

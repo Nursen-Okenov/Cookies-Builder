@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "../../axios";
+import withAxios from "../../hoc/withAxios/withAxios";
 import { load } from "../../store/actions/builder";
-import Ingredients from "../../components/CookiesBuilder/Ingredients/Ingredients";
-import classes from "./CookiesBuilder.module.css";
+import CookiesKit from "../../components/CookiesBuilder/CookiesKit/CookiesKit";
 import CookiesControls from "../../components/CookiesBuilder/CookiesControls/CookiesControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/CookiesBuilder/OrderSummary/OrderSummary";
-import axios from "../../axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import withAxios from "../../hoc/withAxios/withAxios";
+import classes from "./CookiesBuilder.module.css";
 
 export default withAxios(() => {
   const { ingredients, price } = useSelector((state) => state.builder);
@@ -41,7 +41,7 @@ export default withAxios(() => {
 
     output = (
       <>
-        <Ingredients price={price} ingredients={ingredients} />
+        <CookiesKit price={price} ingredients={ingredients} />
         <CookiesControls
           startOrder={startOrder}
           canOrder={canOrder}
@@ -49,10 +49,10 @@ export default withAxios(() => {
         />
         <Modal show={isOrdering} hideCallback={() => setIsOrdering(false)}>
           <OrderSummary
-            price={price}
             ingredients={ingredients}
-            cancelOrder={() => setIsOrdering(false)}
             finishOrder={() => history.push("/checkout")}
+            cancelOrder={() => setIsOrdering(false)}
+            price={price}
           />
         </Modal>
       </>
@@ -61,7 +61,7 @@ export default withAxios(() => {
 
   return (
     <div className={classes.CookiesBuilder}>
-      <h1>Cookies Builder</h1>
+      <h1>Cookies builder</h1>
       {output}
     </div>
   );

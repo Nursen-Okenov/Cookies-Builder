@@ -1,7 +1,7 @@
 import React from "react";
+import classes from "./Nav.module.css";
 import NavItem from "./NavItem/NavItem";
 import { useSelector } from "react-redux";
-import classes from "./Nav.module.css";
 
 export default () => {
   const isAuthenticated = useSelector((state) => state.auth.token !== null);

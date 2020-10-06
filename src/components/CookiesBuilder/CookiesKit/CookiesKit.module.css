@@ -1,5 +1,6 @@
-.Ingredients .pita {
+.CookiesKit .bento {
   border: 3px solid black;
+  background-color: lightgray;
 
   margin: 0 auto;
   width: 400px;
@@ -17,7 +18,7 @@
   background-size: contain;
 
 }
-.Ingredients .price {
+.CookiesKit .price {
   font-size: 2rem;
   text-align: center;
   color: #654321;
@@ -27,7 +28,7 @@
 }
 
 @media (min-width: 400px) {
-  .Ingredients  {
+  .CookiesKit  {
     width: 400px; 
   }
 }

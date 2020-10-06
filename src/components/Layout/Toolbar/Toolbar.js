@@ -4,12 +4,12 @@ import Logo from "../../UI/Logo/Logo";
 import Nav from "../../UI/Nav/Nav";
 import DrawerToggle from "../Drawer/DrawerToggle/DrawerToggle";
 
-export default ({ switchDrawer }) => (
+export default ({ toggleDrawer }) => (
   <div className={classes.Toolbar}>
     <Logo />
     <nav>
       <Nav />
     </nav>
-    <DrawerToggle switchDrawer={switchDrawer} />
+    <DrawerToggle toggleDrawer={toggleDrawer} />
   </div>
 );

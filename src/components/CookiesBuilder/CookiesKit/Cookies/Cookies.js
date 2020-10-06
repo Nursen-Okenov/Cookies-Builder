@@ -1,8 +1,10 @@
 import React, { memo } from "react";
-import classes from "./Ingredient.module.css";
+import classes from "./Cookies.module.css";
 
 export default memo(({ type }) => {
-  let stylePosition = null;
+  const cookiesClasses = [classes.Cookies, classes[type]];
+
+  let stylePos = null;
   const getPosition = (ir) => {
     const pd = 360;
     const pr = pd / 2;
@@ -15,49 +17,37 @@ export default memo(({ type }) => {
 
     return distance < pr ? { x: ix - ir, y: iy - ir } : getPosition(ir);
   };
-  const IngredientsClasses = [classes.Ingredient, classes[type]];
+
   switch (type) {
     case "FrenchCookie":
-      IngredientsClasses.push(classes.FrenchCookies);
+      cookiesClasses.push(classes.FrenchCookies);
       break;
     case "MexicanCookie":
-      IngredientsClasses.push(classes.MexicanCookie);
+      cookiesClasses.push(classes.MexicanCookie);
       break;
     case "RainbowCookie":
-      IngredientsClasses.push(classes.RainbowCookie);
+      cookiesClasses.push(classes.RainbowCookie);
       break;
     case "SerinakakerCookie":
-      IngredientsClasses.push(classes.SerinakakerCookie);
+      cookiesClasses.push(classes.SerinakakerCookie);
       break;
     case "SpanishСookie":
-      IngredientsClasses.push(classes.SpanishСookie);
+      cookiesClasses.push(classes.SpanishСookie);
       break;
     case "TahiniСookie":
     default:
-      IngredientsClasses.push(classes.TahiniСookie);
+      cookiesClasses.push(classes.TahiniСookie);
       break;
   }
 
   const position = getPosition(50 / 2);
 
-  stylePosition = {
+  stylePos = {
     position: "absolute",
     top: position.y + "px",
     left: position.x + "px",
+    
   };
 
-  return (
-    <div style={stylePosition} className={IngredientsClasses.join(" ")}></div>
-  );
+  return <div style={stylePos} className={cookiesClasses.join(" ")}></div>;
 });
-
-
-
-
-
-
-
-   
-
-
- 
