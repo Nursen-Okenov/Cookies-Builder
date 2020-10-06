@@ -1,15 +1,15 @@
 import * as types from "../actions/types";
 
-const initialState = {
-  orders: false,
+const intialState = {
+  orders: null,
 };
 
-export default (state = initialState, action) => {
+export default (state = intialState, action) => {
   switch (action.type) {
     case types.SET_ORDERS:
       return {
         ...state,
-        orders: action.orders
+        orders: action.orders,
       };
 
     default:

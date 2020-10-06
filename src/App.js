@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { restore } from "./store/actions/auth";
 import Layout from "./containers/Layout/Layout";
 import CookiesBuilder from "./containers/CookiesBuilder/CookiesBuilder";
-import "./App.css";
 import Checkout from "./components/Checkout/Checkout";
-import { Route, Switch, Redirect } from "react-router-dom";
 import Orders from "./components/Orders/Orders";
 import Auth from "./components/Auth/Auth";
 import Logout from "./components/Logout/Logout";
-import { restore } from "./store/actions/auth";
-import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
 
 export default () => {
   const dispatch = useDispatch();
@@ -16,7 +16,8 @@ export default () => {
   useEffect(() => {
     restore(dispatch);
   }, [dispatch]);
-  let routesOutput = (
+
+  let routeOutput = (
     <Switch>
       <Route path="/" exact>
         <Redirect to="/builder" />
@@ -31,7 +32,7 @@ export default () => {
     </Switch>
   );
   if (isAuthenticated) {
-    routesOutput = (
+    routeOutput = (
       <Switch>
         <Route path="/" exact>
           <Redirect to="/builder" />
@@ -54,9 +55,10 @@ export default () => {
       </Switch>
     );
   }
+
   return (
     <div className="App">
-      <Layout>{routesOutput}</Layout>
+      <Layout>{routeOutput}</Layout>
     </div>
   );
 };

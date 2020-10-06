@@ -1,4 +1,6 @@
 .CookiesControl {
+  box-sizing: border-box;
+  margin-top: 3px;
   display: flex;
   align-items: center;
 }
@@ -23,10 +25,4 @@
 }
 .CookiesControl button:not(:disabled):hover {
   opacity: .8;
-}
-
-@media (min-width: 500px) {
-  .CookiesControl .label {
-    font-size: 1.5rem;
-  }
 }

@@ -1,21 +1,33 @@
 .CheckoutForm {
   display: flex;
   flex-flow: column nowrap;
+  border-radius: 20px;
+  background-color: #e9eff8;
+  padding: 20px 20px 0 20px;
+  box-shadow: 7px 7px 7px 0px rgba(0, 0, 0, 0.4);
+  margin-bottom: 25px;
+  margin-top: 10px;
+  border: 1px solid darkgray;
+  align-items: center;
 }
 .CheckoutForm input,
 .CheckoutForm select {
-  padding: 0.5em 1em;
-  border: 0;
+  padding: 0.5rem 1em;
+  border: 1px solid rgb(187, 185, 185);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
-  border-radius: 1em;
+  box-shadow: 7px 7px 7px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3em;
   font-size: 1.2rem;
-  min-width: 350px;
-  margin-top: 0.5em;
+  width: 350px;
+  margin-bottom: 0.5em;
+  background: white;
+  align-items: center;
 }
+
 .CheckoutForm input:focus,
 .CheckoutForm select:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6) inset;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7) inset;
 }
 .CheckoutForm button {
   margin: 1em 0;

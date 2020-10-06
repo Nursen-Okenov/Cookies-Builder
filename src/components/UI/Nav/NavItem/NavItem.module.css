@@ -5,17 +5,17 @@
   height: 70px;
   text-decoration: none;
   font-family: "Permanent Marker", cursive;
-  color: #654321;
+  color: #654321;;
   font-size: 1rem;
   border-bottom: 3px solid transparent;
   transition: all 0.2s ease-in-out;
 }
 .NavItem a:hover {
-  border-color: white;
+  border-color: #654321;;
   background-color: rgba(61, 60, 60, 0.1);
 }
 .NavItem .active {
-  border-color: white;
+  border-color: #654321;;
   background-color: rgba(61, 60, 60, 0.1);
 }
 @media (max-width: 660px) {

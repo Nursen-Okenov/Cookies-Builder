@@ -10,11 +10,12 @@ const withErrorHandler = (WrappedComponent, axios) => {
       setError(false);
     }
 
-    const requestInterceptor = axios.interceptors.request.use((request) => {
+    const requestInterceptor = axios.interceptors.request.use((response) => {
       setError(false);
       setLoading(true);
-      return request;
+      return response;
     });
+    
     const responseInterceptor = axios.interceptors.response.use(
       (response) => {
         setLoading(false);
@@ -26,7 +27,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
         return Promise.reject(error);
       }
     );
-
     useEffect(() => {
       return () => {
         axios.interceptors.request.eject(requestInterceptor);
@@ -44,5 +44,4 @@ const withErrorHandler = (WrappedComponent, axios) => {
     );
   };
 };
-
 export default withErrorHandler;

@@ -1,14 +1,17 @@
 .Toolbar {
   display: flex;
   justify-content: space-between;
-
   background-color: lightskyblue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 15;
 }
-
 .Toolbar nav {
   display: none;
 }
-@media (min-width: 700px) {
+@media (min-width: 670px) {
   .Toolbar nav {
     display: block;
   }
