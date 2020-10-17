@@ -1,7 +1,7 @@
 .Button {
   border: none;
-  background-color: green;
-  color: white;
+  background-color: white;
+  color: #fed172 ;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;

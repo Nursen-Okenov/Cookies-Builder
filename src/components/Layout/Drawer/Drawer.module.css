@@ -1,6 +1,6 @@
 .Drawer .content {
   width: 250px;
-  background-color: lightskyblue;
+  background-color: #fed172;
   position: fixed;
   z-index: 250;
   top: 0;

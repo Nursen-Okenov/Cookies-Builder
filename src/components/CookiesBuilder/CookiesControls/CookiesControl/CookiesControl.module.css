@@ -5,7 +5,7 @@
   align-items: center;
 }
 .CookiesControl .label {
-  color: #654321;
+  color: white;
   font-family: "Permanent Marker", cursive;;
   font-size: 1rem;
   padding: .5rem ;
@@ -15,7 +15,7 @@
   height: 25px;
   border: none;
   background-color: white;
-  color: #654321;
+  color: #fed172 ;
   font-weight: bold;
   border-radius: 100%;
   cursor: pointer;

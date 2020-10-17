@@ -1,7 +1,7 @@
 .Toolbar {
   display: flex;
   justify-content: space-between;
-  background-color: lightskyblue;
+  background-color: #fed172;
   position: fixed;
   top: 0;
   left: 0;
