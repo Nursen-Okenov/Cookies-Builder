@@ -7,12 +7,12 @@
 .CookiesControl .label {
   color: white;
   font-family: "Permanent Marker", cursive;;
-  font-size: 1rem;
+  font-size: 20px;
   padding: .5rem ;
 }
 .CookiesControl button {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border: none;
   background-color: white;
   color: #fed172 ;
