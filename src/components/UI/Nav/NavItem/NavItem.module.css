@@ -6,13 +6,13 @@
   text-decoration: none;
   font-family: "Permanent Marker", cursive;
   color: white;
-  font-size: 1rem;
+  font-size: 20px;
   border-bottom: 3px solid transparent;
   transition: all 0.2s ease-in-out;
 }
 .NavItem a:hover {
   border-color: white;
-  background-color: rgba(61, 60, 60, 0.1);
+  background-color: rgba(197, 188, 188, 0.1);
 }
 .NavItem .active {
   border-color: white;
